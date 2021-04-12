@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD4E3D492623C2A0007A4159 /* pass1.c in Sources */ = {isa = PBXBuildFile; fileRef = DD4E3D482623C2A0007A4159 /* pass1.c */; };
+		DD4E3D4E2623C2AC007A4159 /* pass2.c in Sources */ = {isa = PBXBuildFile; fileRef = DD4E3D4D2623C2AC007A4159 /* pass2.c */; };
+		DD4E3D572623D0C1007A4159 /* SIC_components.c in Sources */ = {isa = PBXBuildFile; fileRef = DD4E3D562623D0C1007A4159 /* SIC_components.c */; };
 		DD8268E52623B29D0023791C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = DD8268E42623B29D0023791C /* main.c */; };
+		DD8268F32623B2E10023791C /* Hash_Table.c in Sources */ = {isa = PBXBuildFile; fileRef = DD8268ED2623B2E10023791C /* Hash_Table.c */; };
+		DD8268F42623B2E10023791C /* Functions.c in Sources */ = {isa = PBXBuildFile; fileRef = DD8268EE2623B2E10023791C /* Functions.c */; };
+		DD8268F52623B2E10023791C /* Queue.c in Sources */ = {isa = PBXBuildFile; fileRef = DD8268F22623B2E10023791C /* Queue.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +29,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DD4E3D472623C2A0007A4159 /* pass1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pass1.h; sourceTree = "<group>"; };
+		DD4E3D482623C2A0007A4159 /* pass1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pass1.c; sourceTree = "<group>"; };
+		DD4E3D4C2623C2AC007A4159 /* pass2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pass2.h; sourceTree = "<group>"; };
+		DD4E3D4D2623C2AC007A4159 /* pass2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pass2.c; sourceTree = "<group>"; };
+		DD4E3D552623D0C1007A4159 /* SIC_components.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SIC_components.h; sourceTree = "<group>"; };
+		DD4E3D562623D0C1007A4159 /* SIC_components.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SIC_components.c; sourceTree = "<group>"; };
 		DD8268E12623B29D0023791C /* SICLinkingLoader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SICLinkingLoader; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8268E42623B29D0023791C /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		DD8268ED2623B2E10023791C /* Hash_Table.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Hash_Table.c; sourceTree = "<group>"; };
+		DD8268EE2623B2E10023791C /* Functions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Functions.c; sourceTree = "<group>"; };
+		DD8268EF2623B2E10023791C /* Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Functions.h; sourceTree = "<group>"; };
+		DD8268F02623B2E10023791C /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
+		DD8268F12623B2E10023791C /* Hash_Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hash_Table.h; sourceTree = "<group>"; };
+		DD8268F22623B2E10023791C /* Queue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Queue.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +56,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD4E3D462623C28C007A4159 /* SIC */ = {
+			isa = PBXGroup;
+			children = (
+				DD4E3D472623C2A0007A4159 /* pass1.h */,
+				DD4E3D482623C2A0007A4159 /* pass1.c */,
+				DD4E3D4C2623C2AC007A4159 /* pass2.h */,
+				DD4E3D4D2623C2AC007A4159 /* pass2.c */,
+				DD4E3D552623D0C1007A4159 /* SIC_components.h */,
+				DD4E3D562623D0C1007A4159 /* SIC_components.c */,
+			);
+			path = SIC;
+			sourceTree = "<group>";
+		};
+		DD4E3D592623E222007A4159 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
 		DD8268D82623B29D0023791C = {
 			isa = PBXGroup;
 			children = (
@@ -57,9 +95,25 @@
 		DD8268E32623B29D0023791C /* SICLinkingLoader */ = {
 			isa = PBXGroup;
 			children = (
+				DD4E3D592623E222007A4159 /* tests */,
+				DD4E3D462623C28C007A4159 /* SIC */,
+				DD8268EC2623B2A90023791C /* lib */,
 				DD8268E42623B29D0023791C /* main.c */,
 			);
 			path = SICLinkingLoader;
+			sourceTree = "<group>";
+		};
+		DD8268EC2623B2A90023791C /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				DD8268EE2623B2E10023791C /* Functions.c */,
+				DD8268EF2623B2E10023791C /* Functions.h */,
+				DD8268ED2623B2E10023791C /* Hash_Table.c */,
+				DD8268F12623B2E10023791C /* Hash_Table.h */,
+				DD8268F22623B2E10023791C /* Queue.c */,
+				DD8268F02623B2E10023791C /* Queue.h */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +172,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD4E3D572623D0C1007A4159 /* SIC_components.c in Sources */,
+				DD8268F42623B2E10023791C /* Functions.c in Sources */,
+				DD4E3D492623C2A0007A4159 /* pass1.c in Sources */,
+				DD8268F52623B2E10023791C /* Queue.c in Sources */,
+				DD4E3D4E2623C2AC007A4159 /* pass2.c in Sources */,
+				DD8268F32623B2E10023791C /* Hash_Table.c in Sources */,
 				DD8268E52623B29D0023791C /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
