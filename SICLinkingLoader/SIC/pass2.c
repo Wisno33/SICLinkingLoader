@@ -249,7 +249,7 @@ int pass2(hash_table* exsym_tab, int program_load_address, char* file_names[], F
 				if(strlen(line) == 7)
 				{
 					int first_instruction_address = (int) strtol(substring(1, 6, line), NULL, 16);
-					execution_address = control_section_address + first_instruction_address + (control_section_address - control_section_assembled_address);;
+					execution_address = first_instruction_address + (control_section_address - control_section_assembled_address);;
 				}
 			
 				//End record encountered end file processing.
