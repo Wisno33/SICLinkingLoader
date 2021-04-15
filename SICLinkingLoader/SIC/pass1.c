@@ -35,14 +35,14 @@ void print_exsym_tab(hash_table* exsym_tab, queue* order)
 			//Standard external symbol.
 			else
 			{
-				printf("\t\t%6s\t\t\t%X\n", exsym->name, exsym->address);
+				printf("\t\t%6s\t%X\t\t\n", exsym->name, exsym->address);
 			}
 		}
 		return;
 }
 
 //Pass 1 of the SIC/XE linking loader, input is a list of object files out put will be an external symbol table.
-int pass1(hash_table* exsym_tab, int program_load_address,char* file_names[], FILE* inputs[], int num_object_files)
+int pass1(hash_table* exsym_tab, int program_load_address, char* file_names[], FILE* inputs[], int num_object_files)
 {
 	//Set initial the control section address to the program load address.
 	int control_section_address = program_load_address;
@@ -183,6 +183,7 @@ int pass1(hash_table* exsym_tab, int program_load_address,char* file_names[], FI
 	
 	//Prints the external symbol table.
 	print_exsym_tab(exsym_tab, external_symbol_order);
+	queue_destroy(external_symbol_order);
 	
 	return 0;
 }

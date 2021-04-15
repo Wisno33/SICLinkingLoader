@@ -16,4 +16,6 @@ typedef struct external_symbol
 	char name[7];
 } external_symbol;
 
+
+
 #endif /* SIC_components_h */
