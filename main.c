@@ -47,34 +47,31 @@ int main(int argc, const char * argv[]) {
 	int memory_size = 0;
 	
 	//Validate load address, if it is greater than the highest address error.
-	if(is_integer(program_load_address_string))
+	program_load_address = (int) strtol(program_load_address_string, NULL, 16);
+	
+	free(program_load_address_string);
+	
+	if(!strcmp(architecture, "SIC"))
 	{
-		program_load_address = (int) strtol(program_load_address_string, NULL, 16);
+		//Save the amount of memory available.
+		memory_size = SIC_MAX_ADDRESS + 1;
 		
-		free(program_load_address_string);
-		
-		if(!strcmp(architecture, "SIC"))
+		if(program_load_address > SIC_MAX_ADDRESS)
 		{
-			//Save the amount of memory available.
-			memory_size = SIC_MAX_ADDRESS + 1;
-			
-			if(program_load_address > SIC_MAX_ADDRESS)
-			{
-				printf("ERROR! Program Load Address exceeds maximum address for the %s architecture.\n", architecture);
-				return 1;
-			}
+			printf("ERROR! Program Load Address exceeds maximum address for the %s architecture.\n", architecture);
+			return 1;
 		}
+	}
+	
+	else if(!strcmp(architecture, "SICXE"))
+	{
+		//Save the amount of memory available.
+		memory_size = SICXE_MAX_ADDRESS + 1;
 		
-		else if(!strcmp(architecture, "SICXE"))
+		if (program_load_address > SICXE_MAX_ADDRESS)
 		{
-			//Save the amount of memory available.
-			memory_size = SICXE_MAX_ADDRESS + 1;
-			
-			if (program_load_address > SICXE_MAX_ADDRESS)
-			{
-				printf("ERROR! Program Load Address exceeds maximum address for the %s architecture.\n", architecture);
-				return 1;
-			}
+			printf("ERROR! Program Load Address exceeds maximum address for the %s architecture.\n", architecture);
+			return 1;
 		}
 	}
 	

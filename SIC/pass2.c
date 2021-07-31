@@ -23,7 +23,7 @@
 void load_in_memory(int execution_address, unsigned char memory[], int address_size, int memory_format_length)
 {
 	FILE* memory_file;
-	memory_file = fopen("/Users/davidwisnosky/Programs/C/SICLinkingLoader/SICLinkingLoader/tests/memory.txt", "w+");
+	memory_file = fopen("tests/memory.txt", "w+");
 	
 	// Set program counter.
 	fprintf(memory_file, "PC -> %X\n\n", execution_address);
@@ -172,14 +172,14 @@ int pass2(hash_table* exsym_tab, int program_load_address, char* file_names[], F
 					}
 					
 					//Used to build the object code hex string.
-					char* object_code_to_modify = calloc(num_bytes_to_modify, sizeof(char));
-					char* object_code_builder = calloc(1, sizeof(char));
+					char* object_code_to_modify = malloc((modification_length + 1) * sizeof(char));
+					char* object_code_builder = calloc(3, sizeof(char));
 					
-					//Build the string.
+					//Build the string, as shown in memory. Pad and low hex characters in the string representation.
 					m = 0;
 					for(; m < num_bytes_to_modify; m++)
 					{
-						sprintf(object_code_builder, "%X", object_code_to_modify_bytes[m]);
+						sprintf(object_code_builder, "%02X", object_code_to_modify_bytes[m]);
 						strcat(object_code_to_modify, object_code_builder);
 					}
 					
@@ -200,35 +200,23 @@ int pass2(hash_table* exsym_tab, int program_load_address, char* file_names[], F
 					}
 					
 					//Convert the modified object code back to hex.
-					char* modified_object_code = calloc(num_bytes_to_modify*2, sizeof(char));
+					char* modified_object_code = calloc((num_bytes_to_modify*2) + 1, sizeof(char));
 					sprintf(modified_object_code, "%04X", modified_value);
 					
 					//Load the appropriate bytes in memory.
-					int byte_index = 0;
-					m = num_bytes_to_modify - ((int) ceil(strlen(modified_object_code)/2.0));
-					for(; m < num_bytes_to_modify; m++)
+					int byte_index = (int) strlen(modified_object_code) - 1;
+					int bytes_left = (int) strlen(modified_object_code);
+					m = (int) ceil(strlen(modified_object_code)/2.0) - 1;
+					for(; m >= 0; m--)
 					{
-						//Get the original memory for proper formatting.
-						unsigned char byte[2];
-						memset(byte, '\0', 2);
-						byte[0] = memory[modification_address+m];
-						
 						//Create a hex byte.
 						char object_byte[3];
 						memset(object_byte, '\0', 3);
 						
-						//One hex char from the string if it is not larger than a half byte value (i.e 0xF).
-						if(byte[0] <= 0XF && modification_length % 2 == 1)
-						{
-							object_byte[0] = modified_object_code[byte_index++];
-						}
-						
 						//Create a full hex byte two chars from the string.
-						else
-						{
-							object_byte[0] = modified_object_code[byte_index++];
-							object_byte[1] = modified_object_code[byte_index++];
-						}
+						object_byte[1] = modified_object_code[byte_index--];
+						object_byte[0] = modified_object_code[byte_index--];
+						bytes_left -= 2;
 						
 						//Load hex bytes into memory.
 						int hex_value = (int) strtol(object_byte, NULL, 16);

@@ -69,17 +69,12 @@
 			path = SIC;
 			sourceTree = "<group>";
 		};
-		DD4E3D592623E222007A4159 /* tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = tests;
-			sourceTree = "<group>";
-		};
 		DD8268D82623B29D0023791C = {
 			isa = PBXGroup;
 			children = (
-				DD8268E32623B29D0023791C /* SICLinkingLoader */,
+				DD8268E42623B29D0023791C /* main.c */,
+				DD8268EC2623B2A90023791C /* lib */,
+				DD4E3D462623C28C007A4159 /* SIC */,
 				DD8268E22623B29D0023791C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,17 +85,6 @@
 				DD8268E12623B29D0023791C /* SICLinkingLoader */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		DD8268E32623B29D0023791C /* SICLinkingLoader */ = {
-			isa = PBXGroup;
-			children = (
-				DD4E3D592623E222007A4159 /* tests */,
-				DD4E3D462623C28C007A4159 /* SIC */,
-				DD8268EC2623B2A90023791C /* lib */,
-				DD8268E42623B29D0023791C /* main.c */,
-			);
-			path = SICLinkingLoader;
 			sourceTree = "<group>";
 		};
 		DD8268EC2623B2A90023791C /* lib */ = {
