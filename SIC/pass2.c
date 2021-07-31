@@ -23,7 +23,7 @@
 void load_in_memory(int execution_address, unsigned char memory[], int address_size, int memory_format_length)
 {
 	FILE* memory_file;
-	memory_file = fopen("tests/memory.txt", "w+");
+	memory_file = fopen("memory.txt", "w+");
 	
 	// Set program counter.
 	fprintf(memory_file, "PC -> %X\n\n", execution_address);
